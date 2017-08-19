@@ -1,0 +1,196 @@
+<!doctype html>
+<!--
+  Material Design Lite
+  Copyright 2015 Google Inc. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Diurnal</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/android-desktop.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_purple-pink.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <style>
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+    </style>
+<!--#TO DO
+JavaScript at the end of the page
+You shall place the following notice prominently on your application:
+"This product uses the TMDb API but is not endorsed or certified by TMDb."
+If wikipedia result in empty extract use MovieDB
+-->
+  <script src="apiloader.js"></script>
+  </head>
+
+  <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+        </div>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+<!--Name-->
+          <h3 class="apiName">name</h3>
+        </div>
+      </header>
+      <main class="mdl-layout__content">
+        <div class="mdl-layout__tab-panel is-active" id="overview">
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <header class="apiUrlImg section__play-btn mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone">
+<!--img-->
+            </header>
+            <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
+              <div class="mdl-card__supporting-text">
+<!--Name-->
+                <h4 class="apiName"></h4>
+<!--detailedDescription-->
+                <div class="apiDescription"></div>
+<!--url-->
+                <div class="apiUrl section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone"></div>
+
+                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                  <a href="https://developers.google.com/knowledge-graph/" >
+                    powered by Knowledge Graph API
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+              <div class="mdl-card mdl-cell mdl-cell--12-col">
+                <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+                  <h4 class="mdl-cell mdl-cell--12-col">Bio</h4>
+                  <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+
+<!--Born date&place-->
+                  <b>Born: </b><div style="display: inline" class="apiWikiBorn"></div>
+<!--If died-->
+                  <div class="apiWikiDied"></div>
+<!--If movement-->
+                  <div class="apiWikiMovement"></div>
+                </div>
+<!--wiki extract-->
+                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                    <div class="apiWikiExtract"></div>
+
+                    <div class="apiWikiUrl section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                    </div>
+                    <div class="imdbUrl section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                    </div>
+		    <div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--1-col-tablet mdl-cell--1-col-phone">
+                      <a href="https://www.wikidata.org/" >
+                        <img src="images/poweredByWiki.svg"></img>
+                      </a>
+                    </div>
+
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="section--center mdl-grid mdl-shadow--2dp">
+<!--img-->
+            <div class="mdbImg1 mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone"></div>
+
+              <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
+                <div class="mdl-card__supporting-text">
+  <!--Title-->
+                  <h4 class="title1"></h4>
+  <!--desc-->
+                  <div class="description1"></div>
+                </div>
+              </div>
+
+
+<!--img-->
+            <div class="mdbImg2 mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone"></div>
+
+              <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
+                <div class="mdl-card__supporting-text">
+  <!--Title-->
+                  <h4 class="title2"></h4>
+  <!--desc-->
+                  <div class="description2"></div>
+                </div>
+              </div>
+
+
+<!--img-->
+            <div class="mdbImg3 mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone"></div>
+
+              <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
+                <div class="mdl-card__supporting-text">
+  <!--Title-->
+                  <h4 class="title3"></h4>
+  <!--desc-->
+                  <div class="description3"></div>
+                </div>
+                  </div>
+
+            <div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--1-col-tablet mdl-cell--1-col-phone">
+              <a href="https://www.themoviedb.org/" >
+                <img src="images/poweredByMdb.svg"></img>
+              </a>
+            </div>
+          </section>
+	<footer class="mdl-mega-footer">
+          <div class="mdl-mega-footer--bottom-section">
+            <ul class="mdl-mega-footer--link-list">
+              <li><a href="https://diurnal.info/info.html">Info&amp;Contact</a></li>
+              <li><a href="https://developers.google.com/web/starter-kit/">Web Starter Kit</a></li>
+              <li><a href="https://www.apache.org/licenses/LICENSE-2.0">License</a></li>
+            </ul>
+          </div>
+          <p>© 2017 diurnal.info by NCDev. All rights reserved.</p>
+        </footer>
+     </main>
+    </div>
+  </body>
+</html>
